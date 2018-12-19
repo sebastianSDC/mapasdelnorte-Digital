@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_datos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorCardCliente"
+    android:orientation="vertical"
+    tools:context=".view.fragment.FotosClienteFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        tools:ignore="UnusedAttribute,UselessParent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/colorBlanco"
+                android:elevation="16dp"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nombre_comercio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/nombre_local"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorNegro"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/ed_nombre_comercio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/edit_text_borde"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/hint_nombre"
+                        android:inputType="textCapWords"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textSize="12sp"
+                        tools:ignore="Autofill" />
+
+                    <TextView
+                        android:id="@+id/descripcion_comercio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/descripcion"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorNegro"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/ed_descripcion_comercio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/edit_text_borde"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/hint_descripcion"
+                        android:inputType="textCapSentences"
+                        android:maxLines="7"
+                        android:padding="8dp"
+                        android:text=""
+                        android:textSize="12sp"
+                        tools:text="@tools:sample/lorem/random"
+                        tools:ignore="Autofill" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/categoria_comercio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="@string/Categoria"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorNegro"
+                            android:textSize="12sp" />
+
+                        <Spinner
+                            android:id="@+id/spinn_categorias_comercio"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/categoria_comercio"
+                            android:background="@drawable/edit_text_borde" />
+
+                        <TextView
+                            android:id="@+id/foto_contacto_comercio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/categoria_comercio"
+                            android:layout_alignStart="@id/btn_cargarFoto_comercio"
+                            android:fontFamily="@font/montserrat"
+                            android:text="@string/foto"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorNegro"
+                            android:textSize="12sp" />
+
+
+                        <Button
+                            android:id="@+id/btn_cargarFoto_comercio"
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp"
+                            android:layout_alignWithParentIfMissing="true"
+                            android:layout_below="@+id/foto_contacto_comercio"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_toStartOf="@id/imagen_contacto_comercio"
+                            android:layout_toEndOf="@id/spinn_categorias_comercio"
+                            android:background="@drawable/edit_text_borde"
+                            android:backgroundTint="@color/colorAccent"
+                            android:fontFamily="@font/montserrat"
+                            android:text="@string/cargar_foto"
+                            android:textColor="@color/colorBlanco"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp" />
+
+                        <ImageView
+                            android:id="@+id/imagen_contacto_comercio"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="4dp"
+                            android:contentDescription="@string/foto"
+                            android:background="@drawable/edit_text_borde"
+                            android:scaleType="centerCrop" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

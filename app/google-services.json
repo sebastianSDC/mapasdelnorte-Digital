@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "909915862965",
+    "firebase_url": "https://mapasdelnorte-digital.firebaseio.com",
+    "project_id": "mapasdelnorte-digital",
+    "storage_bucket": "mapasdelnorte-digital.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909915862965:android:39c1f9dd89564226",
+        "android_client_info": {
+          "package_name": "com.example.pilasnotebook.mapasdelnortedigital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909915862965-f8t6njmasl2lr9lj4k58k7io9cet23t7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pilasnotebook.mapasdelnortedigital",
+            "certificate_hash": "e5e8c28ba326e8bb8afbe6ecd0f35dd495b81f2d"
+          }
+        },
+        {
+          "client_id": "909915862965-geh6jss9sld6d29m53dg6a7huj00isnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzYkl54RCl8j6eQDi_qd915iMNMzMMZI0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909915862965-geh6jss9sld6d29m53dg6a7huj00isnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

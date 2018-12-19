@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuItem_comercios"
+        android:icon="@drawable/ic_comercio"
+        android:orderInCategory="0"
+        android:title="@string/SHOPS"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menuItem_cuponera"
+        android:icon="@drawable/ic_cuponera"
+        android:orderInCategory="1"
+        android:title="@string/COUPON_STRIP"
+
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menuItem_cartelera"
+        android:icon="@drawable/ic_cartelera"
+        android:orderInCategory="2"
+        android:title="@string/BILLBOARD"
+
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menuItem_reservas"
+        android:icon="@drawable/ic_reservas"
+        android:orderInCategory="3"
+        android:title="@string/RESERVATIONS"
+        
+        app:showAsAction="always" />
+
+</menu>
+

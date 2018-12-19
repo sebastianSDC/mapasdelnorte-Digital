@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="combo_tipos_cuponera">
+        <item>Seleccione uno…</item>
+        <item>Promocion</item>
+        <item>Oferta</item>
+        <item>Descuento</item>
+
+    </string-array>
+
+</resources>

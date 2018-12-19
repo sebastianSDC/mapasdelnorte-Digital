@@ -1,0 +1,133 @@
+<resources>
+
+
+    <string name="app_name">MAPASDELNORTE</string>
+
+
+    <string name="COUPON_STRIP">CUPONERA</string>
+    <string name="BILLBOARD">CARTELERA</string>
+    <string name="SHOPS">COMERCIOS</string>
+    <string name="RESERVATIONS">RESERVAS</string>
+    <string name="DELIVERY">DELIVERY</string>
+    <string name="ACTIVITY_IN_APP">DASHBOARD</string>
+
+<!--USADOS EN EL ADMIN DE CLIENTE-->
+    <string name="admin_comercio">ADMIN COMERCIO</string>
+    <string name="texto_inicio_form">POR FAVOR COMPLETE EL FORMULARIO \n (con todos los datos requeridos en el)</string>
+
+    <!--CAMPOS DEL FORM-->
+    <string name="nombre_local">Nombre del local o servicio</string>
+    <string name="hint_nombre">escriba el nombre de su comercio o servicio</string>
+
+    <string name="Direccion">Direccion</string>
+    <string name="hint_direccion">escriba direccion actual</string>
+
+    <string name="telefono">Telefono</string>
+    <string name="hint_tel">escriba un numero con codigo de area</string>
+
+    <string name="localidad">Localidad</string>
+    <string name="hint_localidad">escriba la localidad o barrio del comercio</string>
+
+    <string name="cod_postal">Cod. Postal</string>
+    <string name="hint_cp">escriba el CP.</string>
+
+    <string name="provincia">Provincia</string>
+    <string name="hint_provincia">escriba la provincia</string>
+
+    <string name="mail">Mail</string>
+    <string name="hint_mail">escriba un mail de uso comercial</string>
+
+    <string name="pais">Pais</string>
+    <string name="hint_pais">escriba el pais</string>
+
+    <string name="descripcion">Descripcion</string>
+    <string name="hint_descripcion">escriba una breve descripcion de su comercio o servicio</string>
+
+    <string name="fecha">fecha</string>
+    <string name="hint_fecha">dd/mm/aaaa</string>
+
+    <string name="redes">redes</string>
+    <string name="hint_facebook">usuario de Facebook</string>
+    <string name="facebook">usuario de Facebook</string>
+    <string name="hint_instagram">usuario de Instagram</string>
+    <string name="instagram">usuario de Instagram</string>
+    <string name="hint_twitter">usuario de Twitter</string>
+    <string name="twitter">usuario de Twitter</string>
+    <string name="hint_whatsapp">numero de WhatsApp</string>
+    <string name="whatsapp">numero de WhatsApp</string>
+
+    <string name="web"> pagina web</string>
+    <string name="hint_web">escriba la direccion web de su comercio o servicio</string>
+
+    <string name="Categoria">Categoria</string>
+
+    <string name="foto_perfil">foto de perfil</string>
+    <string name="foto">foto</string>
+    <string name="cargar_foto">cargar foto</string>
+    <string name="seleccionar_foto">seleccionar</string>
+
+
+    <string name="guardar_datos_perfil">guardar datos de perfil</string>
+    <string name="guardar_datos_zona">guardar datos de zona</string>
+    <string name="guardar_datos_contacto">guardar datos de contacto</string>
+    <string name="guardar_datos_adicionales">guardar datos adicionales</string>
+
+    <string name="modificar_datos_cliente">modificar datos</string>
+    <string name="cargar_cliente">cargar cliente</string>
+
+    <string name="datos_de_perfil">datos de perfil</string>
+    <string name="datos_de_zona">datos de zona</string>
+    <string name="datos_de_contacto">datos de contacto</string>
+    <string name="datos_adicionales">datos adicionales</string>
+
+    <string name="title_activity_view_pager_admin">ViewPagerAdminActivity</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="descripcion_cuponera">en que consiste este evento de cuponera</string>
+    <string name="titulo">titulo</string>
+    <string name="tipo">tipo</string>
+
+    <!-- MAPA -->
+    <string name="dir_mapa">direccion completa</string>
+    <string name="coord_mapa">coordenadas</string>
+    <string name="ejemploDir_mapa">Av.Maipu 721, Vicente Lopez, Buenos Aires, Argentina</string>
+    <string name="ejemploCoord_mapa">latitud= 34.5678 longitud= 25.8790</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="ver_en_mapa">ver mapa</string>
+    <string name="punto_latlang">geolocalizacion</string>
+    <string name="aclaracion_mapa">ASI SE VA A MOSTRAR SU COMERCIO EN EL MAPA \n (si la ubicacion no es la correcta por favor ubique el punto donde corresponda)</string>
+
+    <string name="cheq_reservas">reservas</string>
+    <string name="venta_on_line">Venta On-Line</string>
+    <string name="text_servicios_adicionales">ADEMAS CUENTA CON LOS SIGUIENTES SERVICIOS\n (hacer click en el servicio que ofrece o quisiera ofrecer)</string>
+    <string name="telefono_de_reservas">telefono de reservas</string>
+    <string name="tolerancia_de_reservas">tolerancia</string>
+    <string name="seña_de_reserva">seña</string>
+    <string name="hint_tel_reservas">número de telefono</string>
+    <string name="hint_tolerancia">en minutos</string>
+    <string name="hint_seña">en $$</string>
+    <string name="telefono_de_delivery">telefono delivery</string>
+    <string name="radioEntrega_delivery">radio de entrega</string>
+    <string name="hint_cobertura">desde, hasta...</string>
+    <string name="texto_legal_vtaOnLine">* Servicio con comision por venta del 7% aplicada sobre el monto total de cada operación. Operacion realizada mediante Tarjeta de Credito.</string>
+    <string name="datos_facturacion">datos de facturacion</string>
+    <string name="hint_titular_facturacion">Titular de la cuenta</string>
+    <string name="hint_banco_facturacion">Nombre del Banco</string>
+    <string name="hint_tipoCuenta_facturacion">Tipo de Cuenta (CA o CC)</string>
+    <string name="hint_cuenta_facturacion">Número de Cuenta</string>
+    <string name="hint_cbu_facturacion">CBU de la Cuenta</string>
+    <string name="hint_cuit_facturacion">CUIT del Titular de la Cuenta</string>
+    <string name="texto_aclaratorio_facturacion">* datos necesarios para realizar los depositos correspondientes a venta on-line.</string>
+    <string name="cheq_facebook">Facebook</string>
+    <string name="cheq_instagram">Instagram</string>
+    <string name="cheq_twitter">Twitter</string>
+    <string name="cheq_whatsapp">WhatsApp</string>
+    <string name="powered_by_mapasdelnorte">Powered by MAPASDELNORTE</string>
+
+
+</resources>
+
+
+
+

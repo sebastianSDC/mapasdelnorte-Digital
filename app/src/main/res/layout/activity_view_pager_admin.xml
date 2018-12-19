@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".view.activity.ViewPagerAdminActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
+            android:textAllCaps="true"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/admin_comercio">
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="center"
+            app:tabMode="scrollable">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem_datos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="datos" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem_cuponera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cuponera" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem_cartelera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cartelera" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem_fotos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fotos" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem_catalogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="catalogo on-line" />
+
+        </android.support.design.widget.TabLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!--//////////////////TODO: agregado para ver si puedo hacerlo funcionar asi/////////////////////-->
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relative_mapa"
+        android:visibility="">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/GoogleMap_container"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="115dp"
+        android:visibility="gone"
+        />-->
+
+<!--
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                style="@style/cardview_form"
+                android:layout_marginTop="120dp"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_direccion_comercio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="@string/ejemploDir_mapa"
+                        tools:targetApi="o" />
+
+                    <TextView
+                        android:id="@+id/txt_coordenadas_comercio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="@string/ejemploCoord_mapa"
+                        android:background="@drawable/edit_text_borde"
+                        android:padding="4dp"
+                        tools:targetApi="o" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </RelativeLayout>-->
+    <!--//////////////////////////////////////////////////////////////////////////////////-->
+
+
+   <!-- <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />-->
+    <!--app:backgroundTint="@color/colorPrimaryDark"-->
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="combo_tipos_cartelera">
+        <item>Seleccione uno…</item>
+        <item>Evento</item>
+
+        <item>Degustación</item>
+
+        <item>Muestra de Arte</item>
+
+        <item>Curso</item>
+
+        <item>Taller</item>
+
+    </string-array>
+
+</resources>

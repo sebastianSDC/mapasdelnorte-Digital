@@ -1,0 +1,1516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_datos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorCardCliente"
+    android:orientation="vertical"
+    tools:context=".view.fragment.DatosClienteFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        tools:ignore="UselessParent"
+        tools:targetApi="o">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txv_datos_comercio"
+                style="@style/titulos_form"
+                android:layout_marginTop="16dp"
+                android:text="@string/texto_inicio_form"
+                android:textAllCaps="false" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_datos_de_perfil"
+                style="@style/cardview_form"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/foto"
+                            android:maxWidth="50dp"
+                            android:maxHeight="50dp"
+                            android:src="@drawable/isotipo_marker_mapasdelnorte" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="bottom"
+                            android:text="@string/datos_de_perfil"
+                            android:textAllCaps="true"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/nombre_comercio"
+                        style="@style/titulos_form"
+                        android:text="@string/nombre_local" />
+
+                    <EditText
+                        android:id="@+id/ed_nombre_comercio"
+                        style="@style/edittext_form"
+                        android:hint="@string/hint_nombre"
+                        android:inputType="textCapWords"
+                        tools:ignore="Autofill" />
+
+                    <TextView
+                        android:id="@+id/descripcion_comercio"
+                        style="@style/titulos_form"
+                        android:text="@string/descripcion" />
+
+                    <EditText
+                        android:id="@+id/ed_descripcion_comercio"
+                        style="@style/edittext_form"
+                        android:layout_height="70dp"
+                        android:ellipsize="end"
+                        android:gravity="top"
+                        android:hint="@string/hint_descripcion"
+                        android:inputType="textMultiLine"
+                        tools:ignore="Autofill"
+                        tools:text="@tools:sample/lorem/random" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/categoria_comercio"
+                            style="@style/titulos_form"
+                            android:text="@string/Categoria" />
+
+                        <Spinner
+                            android:id="@+id/spinn_categorias_comercio"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/categoria_comercio"
+                            android:background="@drawable/edit_text_borde" />
+
+                        <TextView
+                            android:id="@+id/foto_contacto_comercio"
+                            style="@style/titulos_form"
+                            android:layout_alignBaseline="@id/categoria_comercio"
+                            android:layout_alignStart="@id/btn_cargarFoto_comercio"
+                            android:layout_marginBottom="0dp"
+                            android:text="@string/foto" />
+
+                        <Button
+                            android:id="@+id/btn_cargarFoto_comercio"
+                            style="@style/boton_standard"
+                            android:layout_alignWithParentIfMissing="true"
+                            android:layout_below="@+id/foto_contacto_comercio"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_toStartOf="@id/imagen_contacto_comercio"
+                            android:layout_toEndOf="@id/spinn_categorias_comercio"
+                            android:backgroundTint="@color/colorPrimaryDark"
+                            android:text="@string/seleccionar_foto" />
+
+                        <ImageView
+                            android:id="@+id/imagen_contacto_comercio"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/edit_text_borde"
+                            android:contentDescription="@string/foto"
+                            android:scaleType="centerCrop" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/colorPrimary" />
+
+                    <Button
+                        android:id="@+id/btn_cargar_datos_de_perfil_comercio"
+                        style="@style/boton_standard"
+                        android:text="@string/guardar_datos_perfil" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_datos_de_perfil_gone"
+                style="@style/cardview_form"
+                android:visibility="gone"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/foto"
+                            android:maxWidth="50dp"
+                            android:maxHeight="50dp"
+                            android:src="@drawable/isotipo_marker_mapasdelnorte" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="bottom"
+                            android:text="@string/datos_de_perfil"
+                            android:textAllCaps="true"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="6"
+                        tools:ignore="DisableBaselineAlignment">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="4"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/nombre_comercio_gone"
+                                style="@style/titulos_form"
+                                android:alpha=".3"
+                                android:text="@string/nombre_local" />
+
+                            <TextView
+                                android:id="@+id/txv_nombre_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="textCapWords"
+                                android:text="@string/nombre_local"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/categoria_comercio_gone"
+                                style="@style/titulos_form"
+                                android:alpha=".3"
+                                android:text="@string/Categoria" />
+
+                            <TextView
+                                android:id="@+id/txv_categoria_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="textCapWords"
+                                android:maxLines="7"
+                                android:text="@string/nombre_local"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/descripcion_comercio_gone"
+                                style="@style/titulos_form"
+                                android:alpha=".3"
+                                android:text="@string/descripcion" />
+
+                            <TextView
+                                android:id="@+id/txv_descripcion_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:ellipsize="end"
+                                android:inputType="textMultiLine"
+                                android:maxLines="4"
+                                android:text="@string/nombre_local"
+                                android:textAllCaps="false"
+                                tools:ignore="TextViewEdits" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="2"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:id="@+id/foto_contacto_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:alpha=".3"
+                                android:text="@string/foto" />
+
+                            <ImageView
+                                android:id="@+id/imagen_contacto_comercio_gone"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/edit_text_borde"
+                                android:contentDescription="@string/foto"
+                                android:scaleType="centerCrop" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_datos_de_zona"
+                style="@style/cardview_form"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/foto"
+                            android:maxWidth="50dp"
+                            android:maxHeight="50dp"
+                            android:src="@drawable/isotipo_marker_mapasdelnorte" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="bottom"
+                            android:text="@string/datos_de_zona"
+                            android:textAllCaps="true"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+
+                    <Switch
+                        android:id="@+id/switch_direccion_fija"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="Tiene Dirección Física "
+                         />
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_direccion_fisica"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/direccion_comercio"
+                            style="@style/titulos_form"
+                            android:text="@string/Direccion" />
+
+                        <EditText
+                            android:id="@+id/ed_direccion_comercio"
+                            style="@style/edittext_form"
+                            android:hint="@string/hint_direccion"
+                            android:inputType="textCapWords"
+                            tools:ignore="Autofill" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal"
+                            android:weightSum="6">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="3"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/localidad_comercio"
+                                    style="@style/titulos_form"
+                                    android:text="@string/localidad" />
+
+                                <EditText
+                                    android:id="@+id/ed_localidad_comercio"
+                                    style="@style/edittext_form"
+                                    android:hint="@string/hint_localidad"
+                                    android:inputType="textCapWords"
+                                    tools:ignore="Autofill" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/provincia_comercio"
+                                    style="@style/titulos_form"
+                                    android:text="@string/provincia" />
+
+                                <EditText
+                                    android:id="@+id/ed_provincia_comercio"
+                                    style="@style/edittext_form"
+                                    android:hint="@string/hint_provincia"
+                                    android:inputType="textCapWords"
+                                    tools:ignore="Autofill" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal"
+                            android:weightSum="6">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="3"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/pais_comercio"
+                                    style="@style/titulos_form"
+                                    android:text="@string/pais" />
+
+                                <EditText
+                                    android:id="@+id/ed_pais_comercio"
+                                    style="@style/edittext_form"
+                                    android:hint="@string/hint_pais"
+                                    android:inputType="textCapCharacters"
+                                    tools:ignore="Autofill" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/punto_comercio"
+                                    style="@style/titulos_form"
+                                    android:text="@string/punto_latlang" />
+
+                                <Button
+                                    android:id="@+id/btn_ver_mapa_comercio"
+                                    style="@style/boton_standard"
+                                    android:layout_marginTop="4dp"
+                                    android:backgroundTint="@color/colorPrimaryDark"
+                                    android:text="@string/ver_en_mapa" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layout_contenedor_mapa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/aclaracion_mapa"
+                                android:textSize="10sp"
+                                tools:ignore="SmallSp" />
+
+                            <com.google.android.gms.maps.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:id="@+id/GoogleMap_container"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/colorPrimary" />
+
+                        <Button
+                            android:id="@+id/btn_cargar_datos_de_zona_comercio"
+                            style="@style/boton_standard"
+                            android:text="@string/guardar_datos_zona" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_datos_de_zona_gone"
+                style="@style/cardview_form"
+                android:visibility="gone"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/foto"
+                            android:maxWidth="50dp"
+                            android:maxHeight="50dp"
+                            android:src="@drawable/isotipo_marker_mapasdelnorte" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="bottom"
+                            android:text="@string/datos_de_zona"
+                            android:textAllCaps="true"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
+                        android:weightSum="6"
+                        tools:ignore="DisableBaselineAlignment">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="3.5"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/direccion_comercio_gone"
+                                style="@style/titulos_form"
+                                android:alpha=".3"
+                                android:text="@string/Direccion" />
+
+                            <TextView
+                                android:id="@+id/txv_direccion_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="textCapWords"
+                                android:text="@string/nombre_local"
+                                android:textAlignment="textEnd"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/localidad_comercio_gone"
+                                style="@style/titulos_form"
+                                android:alpha=".3"
+                                android:text="@string/localidad" />
+
+                            <TextView
+                                android:id="@+id/txv_localidad_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="textCapWords"
+                                android:text="@string/nombre_local"
+                                android:textAlignment="textEnd"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/provincia_comercio_gone"
+                                style="@style/titulos_form"
+                                android:alpha=".3"
+                                android:text="@string/provincia" />
+
+                            <TextView
+                                android:id="@+id/txv_provincia_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="textCapWords"
+                                android:text="@string/nombre_local"
+                                android:textAlignment="textEnd"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/pais_comercio_gone"
+                                style="@style/titulos_form"
+                                android:alpha=".3"
+                                android:text="@string/pais" />
+
+                            <TextView
+                                android:id="@+id/txv_pais_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="textCapWords"
+                                android:text=""
+                                android:textAlignment="viewEnd"
+                                tools:ignore="TextViewEdits" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="2.5"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:id="@+id/mapa_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:alpha=".3"
+                                android:text="@string/punto_latlang"
+                                tools:ignore="TooManyViews" />
+
+                            <com.google.android.gms.maps.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:id="@+id/GoogleMap_container_oc"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_datos_de_contacto"
+                style="@style/cardview_form"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/foto"
+                            android:maxWidth="50dp"
+                            android:maxHeight="50dp"
+                            android:src="@drawable/isotipo_marker_mapasdelnorte" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="bottom"
+                            android:text="@string/datos_de_contacto"
+                            android:textAllCaps="true"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/telefono_comercio"
+                        style="@style/titulos_form"
+                        android:text="@string/telefono" />
+
+                    <EditText
+                        android:id="@+id/ed_telefono_comercio"
+                        style="@style/edittext_form"
+                        android:hint="@string/hint_tel"
+                        android:inputType="phone"
+                        tools:ignore="Autofill" />
+
+                    <TextView
+                        android:id="@+id/mail_comercio"
+                        style="@style/titulos_form"
+                        android:text="@string/mail" />
+
+                    <EditText
+                        android:id="@+id/ed_mail_comercio"
+                        style="@style/edittext_form"
+                        android:hint="@string/hint_mail"
+                        android:inputType="textEmailAddress"
+                        tools:ignore="Autofill" />
+
+                    <TextView
+                        android:id="@+id/redes_comercio"
+                        style="@style/titulos_form"
+                        android:text="@string/redes" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <CheckedTextView
+                            android:id="@+id/cheq_facebook"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:checked="false"
+                            android:text="@string/cheq_facebook" />
+
+                        <CheckedTextView
+                            android:id="@+id/cheq_instagram"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:checked="false"
+                            android:text="@string/cheq_instagram" />
+
+                        <CheckedTextView
+                            android:id="@+id/cheq_twitter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:checked="false"
+                            android:text="@string/cheq_twitter" />
+
+                        <CheckedTextView
+                            android:id="@+id/cheq_whatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:checked="false"
+                            android:text="@string/cheq_whatsapp" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/ed_facebook_comercio"
+                        style="@style/edittext_form"
+                        android:hint="@string/hint_facebook"
+                        android:inputType="textEmailAddress"
+                        android:visibility="gone"
+                        tools:ignore="Autofill" />
+
+                    <EditText
+                        android:id="@+id/ed_instagram_comercio"
+                        style="@style/edittext_form"
+                        android:hint="@string/hint_instagram"
+                        android:inputType="textEmailAddress"
+                        android:visibility="gone"
+                        tools:ignore="Autofill" />
+
+                    <EditText
+                        android:id="@+id/ed_twitter_comercio"
+                        style="@style/edittext_form"
+                        android:hint="@string/hint_twitter"
+                        android:inputType="textEmailAddress"
+                        android:visibility="gone"
+                        tools:ignore="Autofill" />
+
+                    <EditText
+                        android:id="@+id/ed_whatsapp_comercio"
+                        style="@style/edittext_form"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_whatsapp"
+                        android:inputType="phone"
+                        android:visibility="gone"
+                        tools:ignore="Autofill" />
+
+                    <TextView
+                        android:id="@+id/web_comercio"
+                        style="@style/titulos_form"
+                        android:text="@string/web" />
+
+                    <EditText
+                        android:id="@+id/ed_web_comercio"
+                        style="@style/edittext_form"
+                        android:hint="@string/hint_web"
+                        android:inputType="textEmailAddress"
+                        tools:ignore="Autofill" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/colorPrimary" />
+
+                    <Button
+                        android:id="@+id/btn_cargar_datos_contacto_comercio"
+                        style="@style/boton_standard"
+                        android:text="@string/guardar_datos_contacto" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_datos_de_contacto_gone"
+                style="@style/cardview_form"
+                android:visibility="gone"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/foto"
+                            android:maxWidth="50dp"
+                            android:maxHeight="50dp"
+                            android:src="@drawable/isotipo_marker_mapasdelnorte" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="bottom"
+                            android:text="@string/datos_de_contacto"
+                            android:textAllCaps="true"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
+                        android:weightSum="6"
+                        tools:ignore="DisableBaselineAlignment">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="4"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/telefono_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="0dp"
+                                android:alpha=".3"
+                                android:text="@string/telefono" />
+
+                            <TextView
+                                android:id="@+id/txv_telefono_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="phone"
+                                android:text="@string/telefono"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/mail_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="0dp"
+                                android:alpha=".3"
+                                android:text="@string/mail" />
+
+                            <TextView
+                                android:id="@+id/txv_mail_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="textEmailAddress"
+                                android:text="@string/mail"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/web_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="0dp"
+                                android:alpha=".3"
+                                android:text="@string/web" />
+
+                            <TextView
+                                android:id="@+id/txv_web_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="8dp"
+                                android:inputType="textEmailAddress"
+                                android:text="@string/web"
+                                tools:ignore="TextViewEdits" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="2"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:id="@+id/redes_comercio_gone"
+                                style="@style/titulos_form"
+                                android:layout_marginBottom="0dp"
+                                android:alpha=".3"
+                                android:text="@string/redes" />
+
+                            <TextView
+                                android:id="@+id/txv_facebook_gone"
+                                style="@style/titulos_form"
+                                android:inputType="textMultiLine"
+                                android:text="@string/facebook"
+                                android:textAllCaps="false"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/txv_instagram_gone"
+                                style="@style/titulos_form"
+                                android:inputType="textMultiLine"
+                                android:text="@string/instagram"
+                                android:textAllCaps="false"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/txv_twitter_gone"
+                                style="@style/titulos_form"
+                                android:inputType="textMultiLine"
+                                android:text="@string/twitter"
+                                android:textAllCaps="false"
+                                tools:ignore="TextViewEdits" />
+
+                            <TextView
+                                android:id="@+id/txv_whatsapp_gone"
+                                style="@style/titulos_form"
+                                android:inputType="textMultiLine"
+                                android:text="@string/whatsapp"
+                                android:textAllCaps="false"
+                                tools:ignore="TextViewEdits" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_datos_adicionales"
+                style="@style/cardview_form"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/foto"
+                            android:maxWidth="50dp"
+                            android:maxHeight="50dp"
+                            android:src="@drawable/isotipo_marker_mapasdelnorte" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="bottom"
+                            android:text="@string/datos_adicionales"
+                            android:textAllCaps="true"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/titulos_form"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
+                        android:text="@string/text_servicios_adicionales"
+                        android:textAllCaps="false" />
+
+
+                    <CheckedTextView
+                        android:id="@+id/cheq_reservas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:checked="false"
+                        android:text="@string/RESERVATIONS" />
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_servicio_reservas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:weightSum="10"
+                        tools:ignore="DisableBaselineAlignment">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="5"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/telefono_reservas_comercio"
+                                style="@style/titulos_form"
+                                android:layout_height="match_parent"
+                                android:text="@string/telefono_de_reservas" />
+
+                            <EditText
+                                android:id="@+id/ed_telefono_reservas_comercio"
+                                style="@style/edittext_form"
+                                android:hint="@string/hint_tel_reservas"
+                                android:inputType="phone"
+                                tools:ignore="Autofill" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="3"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tolerancia_reserva_comercio"
+                                style="@style/titulos_form"
+                                android:layout_height="match_parent"
+                                android:text="@string/tolerancia_de_reservas" />
+
+                            <EditText
+                                android:id="@+id/ed_tolerancia_reserva_comercio"
+                                style="@style/edittext_form"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_tolerancia"
+                                android:inputType="number"
+                                tools:ignore="Autofill" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/seña_reserva_comercio"
+                                style="@style/titulos_form"
+                                android:layout_height="match_parent"
+                                android:text="@string/seña_de_reserva" />
+
+                            <EditText
+                                android:id="@+id/ed_seña_reserva_comercio"
+                                style="@style/edittext_form"
+                                android:hint="@string/hint_seña"
+                                android:inputType="number"
+                                tools:ignore="Autofill" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <CheckedTextView
+                        android:id="@+id/cheq_delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:checked="false"
+                        android:text="@string/DELIVERY" />
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_servicio_delivery"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:weightSum="10"
+                        tools:ignore="DisableBaselineAlignment">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="4"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/telefono_delivery_comercio"
+                                style="@style/titulos_form"
+                                android:layout_height="match_parent"
+                                android:text="@string/telefono_de_delivery" />
+
+                            <EditText
+                                android:id="@+id/ed_telefono_delivery_comercio"
+                                style="@style/edittext_form"
+                                android:hint="@string/hint_tel_reservas"
+                                android:inputType="phone"
+                                tools:ignore="Autofill" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="6"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/cobertura_delivery_comercio"
+                                style="@style/titulos_form"
+                                android:layout_height="match_parent"
+                                android:text="@string/radioEntrega_delivery" />
+
+                            <EditText
+                                android:id="@+id/ed_cobertura_delivery_comercio"
+                                style="@style/edittext_form"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_cobertura"
+                                android:inputType="textCapSentences"
+                                tools:ignore="Autofill" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <CheckedTextView
+                        android:id="@+id/cheq_venta_online"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:checked="false"
+                        android:text="@string/venta_on_line"
+                        android:textAllCaps="true" />
+
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_servicio_vtaOnLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/titulos_form"
+                            android:text="@string/texto_legal_vtaOnLine"
+                            android:textAllCaps="false"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/facturacion_vtaonline_comercio"
+                            style="@style/titulos_form"
+                            android:layout_height="match_parent"
+                            android:text="@string/datos_facturacion" />
+
+                        <EditText
+                            android:id="@+id/ed_titular_cuenta_facturacion"
+                            style="@style/edittext_form"
+                            android:hint="@string/hint_titular_facturacion"
+                            android:inputType="textCapWords"
+                            tools:ignore="Autofill" />
+
+                        <EditText
+                            android:id="@+id/ed_banco_cuenta_facturacion"
+                            style="@style/edittext_form"
+                            android:hint="@string/hint_banco_facturacion"
+                            android:inputType="textCapWords"
+                            tools:ignore="Autofill" />
+
+                        <EditText
+                            android:id="@+id/ed_tipo_cuenta_facturacion"
+                            style="@style/edittext_form"
+                            android:hint="@string/hint_tipoCuenta_facturacion"
+                            android:inputType="textCapCharacters"
+                            tools:ignore="Autofill" />
+
+                        <EditText
+                            android:id="@+id/ed_numero_cuenta_facturacion"
+                            style="@style/edittext_form"
+                            android:hint="@string/hint_cuenta_facturacion"
+                            android:inputType="number"
+                            tools:ignore="Autofill" />
+
+                        <EditText
+                            android:id="@+id/ed_cbu_cuenta_facturacion"
+                            style="@style/edittext_form"
+                            android:hint="@string/hint_cbu_facturacion"
+                            android:inputType="number"
+                            tools:ignore="Autofill" />
+
+                        <EditText
+                            android:id="@+id/ed_tipo_cuit_facturacion"
+                            style="@style/edittext_form"
+                            android:hint="@string/hint_cuit_facturacion"
+                            android:inputType="number"
+                            tools:ignore="Autofill" />
+
+                        <TextView
+                            style="@style/titulos_form"
+                            android:text="@string/texto_aclaratorio_facturacion"
+                            android:textAllCaps="false"
+                            android:textSize="10sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/colorPrimary" />
+
+                    <Button
+                        android:id="@+id/btn_cargar_datos_adicionales_comercio"
+                        style="@style/boton_standard"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:layout_gravity=""
+                        android:layout_marginVertical="8dp"
+                        android:text="@string/guardar_datos_adicionales" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_datos_adicionales_gone"
+                style="@style/cardview_form"
+                android:visibility="gone"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/foto"
+                            android:maxWidth="50dp"
+                            android:maxHeight="50dp"
+                            android:src="@drawable/isotipo_marker_mapasdelnorte" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="bottom"
+                            android:text="@string/datos_adicionales"
+                            android:textAllCaps="true"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_reservas_gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txv_reservas_gone"
+                            style="@style/titulos_form"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="4dp"
+                            android:background="@color/colorCardCliente"
+                            android:gravity="end"
+                            android:paddingEnd="8dp"
+                            android:text="@string/RESERVATIONS"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/telefono_reservas_comercio_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="0dp"
+                            android:alpha=".3"
+                            android:text="@string/telefono_de_reservas" />
+
+                        <TextView
+                            android:id="@+id/txv_telefono_reservas_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/telefono_de_reservas"
+                            tools:ignore="TextViewEdits" />
+
+                        <TextView
+                            android:id="@+id/tolerancia_reservas_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="0dp"
+                            android:alpha=".3"
+                            android:text="@string/tolerancia_de_reservas" />
+
+                        <TextView
+                            android:id="@+id/txv_tolerancia_reservas_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/tolerancia_de_reservas"
+                            tools:ignore="TextViewEdits" />
+
+                        <TextView
+                            android:id="@+id/seña_reservas_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="0dp"
+                            android:alpha=".3"
+                            android:text="@string/seña_de_reserva" />
+
+                        <TextView
+                            android:id="@+id/txv_seña_reservas_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/seña_de_reserva"
+                            tools:ignore="TextViewEdits" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_delivery_gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txv_delivery_gone"
+                            style="@style/titulos_form"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="4dp"
+                            android:background="@color/colorCardCliente"
+                            android:gravity="end"
+                            android:paddingEnd="8dp"
+                            android:text="@string/DELIVERY"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/telefono_delivery_comercio_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="0dp"
+                            android:alpha=".3"
+                            android:text="@string/telefono_de_delivery" />
+
+                        <TextView
+                            android:id="@+id/txv_telefono_delivery_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/telefono_de_delivery"
+                            tools:ignore="TextViewEdits" />
+
+                        <TextView
+                            android:id="@+id/radio_entrega_delivery_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="0dp"
+                            android:alpha=".3"
+                            android:text="@string/radioEntrega_delivery" />
+
+                        <TextView
+                            android:id="@+id/txv_radio_entrega_delivery_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/radioEntrega_delivery"
+                            tools:ignore="TextViewEdits" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_vtaOnline_gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txv_vtaOnline_gone"
+                            style="@style/titulos_form"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="4dp"
+                            android:background="@color/colorCardCliente"
+                            android:gravity="end"
+                            android:paddingEnd="8dp"
+                            android:text="@string/venta_on_line"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/datos_facturacion_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="0dp"
+                            android:alpha=".3"
+                            android:text="@string/datos_facturacion" />
+
+                        <TextView
+                            android:id="@+id/txv_titular_facturacion_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/hint_titular_facturacion"
+                            tools:ignore="TextViewEdits" />
+
+                        <TextView
+                            android:id="@+id/txv_banco_facturacion_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/hint_banco_facturacion"
+                            tools:ignore="TextViewEdits" />
+
+                        <TextView
+                            android:id="@+id/txv_tipo_facturacion_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/hint_tipoCuenta_facturacion"
+                            tools:ignore="TextViewEdits" />
+
+                        <TextView
+                            android:id="@+id/txv_cuenta_facturacion_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/hint_cuenta_facturacion"
+                            tools:ignore="TextViewEdits" />
+
+                        <TextView
+                            android:id="@+id/txv_cbu_facturacion_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/hint_cbu_facturacion"
+                            tools:ignore="TextViewEdits" />
+
+                        <TextView
+                            android:id="@+id/txv_cuit_facturacion_gone"
+                            style="@style/titulos_form"
+                            android:layout_marginBottom="8dp"
+                            android:inputType="textCapWords"
+                            android:text="@string/hint_cuit_facturacion"
+                            tools:ignore="TextViewEdits" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btn_modificar_cliente"
+                    style="@style/boton_standard"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:text="@string/modificar_datos_cliente"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/btn_cargar_cliente"
+                    style="@style/boton_standard"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+
+                    android:maxHeight="50dp"
+                    android:text="@string/cargar_cliente"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="60dp"
+                android:gravity="end|bottom"
+                android:text="@string/powered_by_mapasdelnorte"
+                android:textColor="@color/colorAccent"
+                android:textSize="8dp"
+                tools:ignore="SpUsage" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

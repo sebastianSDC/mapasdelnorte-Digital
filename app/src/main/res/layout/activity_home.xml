@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlanco"
+    tools:context=".view.activity.HomeActivity">
+
+    <Button
+        android:id="@+id/cUPONERA"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_alignTop="@+id/cARTELERA"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/COUPON_STRIP"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/cARTELERA"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_alignTop="@+id/cOMERCIOS"
+        android:layout_alignEnd="@+id/vp_publicidad"
+        android:layout_alignRight="@+id/vp_publicidad"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/BILLBOARD"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/cOMERCIOS"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@id/vp_publicidad"
+        android:layout_alignStart="@+id/vp_publicidad"
+        android:layout_alignLeft="@+id/vp_publicidad"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/SHOPS"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/rESERVAS"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@id/cOMERCIOS"
+        android:layout_alignStart="@+id/vp_publicidad"
+        android:layout_alignLeft="@+id/vp_publicidad"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/RESERVATIONS"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/dELIVERY"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_alignTop="@+id/rESERVAS"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/montserrat"
+        android:lineSpacingExtra="10dp"
+        android:text="@string/DELIVERY"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/aCTIVITY_IN_APP"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/cARTELERA"
+        android:layout_alignLeft="@+id/cARTELERA"
+        android:layout_alignTop="@+id/rESERVAS"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/ACTIVITY_IN_APP"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_publicidad"
+        android:layout_width="match_parent"
+        android:layout_height="159dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorAccent"
+        android:visibility="visible">
+    </android.support.v4.view.ViewPager>
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:visibility="visible"
+        app:itemIconTint="@color/colorBlanco"
+        app:itemTextColor="@color/colorBlanco"
+        app:menu="@menu/menu_bottom_bar" />
+    <!--<com.google.android.gms.maps.MapView
+        android:id="@+id/mapView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="62dp"
+        android:layout_marginHorizontal="15dp" />-->
+</RelativeLayout>

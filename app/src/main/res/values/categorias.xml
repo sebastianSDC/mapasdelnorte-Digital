@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="combo_categorias">
+        <item>Seleccione una…</item>
+        <item>Moda &amp; Accesorios</item>
+        <item>Eat &amp; Drink</item>
+        <item>Hogar &amp; Deco</item>
+        <item>Beauty &amp; Sport</item>
+        <item>Baby &amp; Child</item>
+    </string-array>
+</resources>

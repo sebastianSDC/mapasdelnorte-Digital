@@ -1,0 +1,58 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    
+    <style name="boton_standard">
+        <item name="android:background">@drawable/edit_text_borde</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:textColor">@color/colorBlanco</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:layout_marginTop" tools:ignore="NewApi">8dp</item>
+        <item name="android:layout_marginBottom" tools:ignore="NewApi">8dp</item>
+    </style>
+
+    <style name="titulos_form">
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorNegro</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="edittext_form">
+        <item name="android:background">@drawable/edit_text_borde</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorNegro</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:autofillHints" tools:targetApi="o">**dato obligatorio**</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="cardview_form">
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:backgroundTint">@color/colorBlanco</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:elevation">16dp</item>
+    </style>
+
+</resources>
