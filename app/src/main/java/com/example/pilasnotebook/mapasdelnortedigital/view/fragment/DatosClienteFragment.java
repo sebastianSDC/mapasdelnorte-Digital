@@ -62,8 +62,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -81,6 +79,7 @@ import static android.support.v4.content.ContextCompat.checkSelfPermission;
 
 public class DatosClienteFragment extends Fragment implements OnMapReadyCallback {
 
+
     String TAG = Constantes.TAG;
     private OnFragmentInteractionListener mListener; // INTERFACE
     protected Spinner categorias;
@@ -88,13 +87,14 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
     private Switch switchDireccion;
 
     //ATRIBUTOS PARA FOTO
-    private String path;
+
+    public static String path;
     private Uri fotoPerfilUri;
     protected ImageView fotodeContacto, fotoPerfilOculto;
 
     //MODEL POJO USADOS
     private Zona zona;
-    private Cliente cliente;
+    public static Cliente cliente; // chequear despues de hacer auth si es correcto ponerla static.
     private DatosDeContacto datosDeContacto;
     private DatosAdicionales datosAdicionales;
     private DatosDeFacturacion datosDeFacturacion;
@@ -102,34 +102,25 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
     private Reservas servicioReservas;
 
     //EDITTEXT DEL FORMULARIO ADMIN CLIENTE
-    private EditText nombreEd, descripcionEd,
-            direccionEd, localidadED, provinciaEd, paisEd,
-            telefonoEd, mailEd, faceEd, instaEd, twitEd, watsapEd, webEd,
-            telResEd, toleranciaEd, señaEd,
-            telDelivEd, radioDelivEd,
-            titularEd, bancoEd, tipoCuentaEd, numCuentaEd, cbuEd, cuitEd;
+    private EditText nombreEd, descripcionEd, direccionEd, localidadED, provinciaEd, paisEd, telefonoEd, mailEd, faceEd, instaEd, twitEd, watsapEd, webEd, telResEd, toleranciaEd, señaEd, telDelivEd, radioDelivEd, titularEd, bancoEd, tipoCuentaEd, numCuentaEd, cbuEd, cuitEd;
 
     //CHEQUED-TXV DEL FORMULARIO ADMIN CLIENTE
     private CheckedTextView face, insta, twit, watsap, reservas, delivery, vtaOnLine;
 
     //BOTONES DEL FORMULARIO ADMIN CLIENTE
-    private Button btnCargarFoto, btnCargarDatosPerfil, btnVerMapa, btnCargarDatosZona, btnCargarDatosContacto, btnCargarDatosAdicionales,
-            btnModifDatosCliente, btnCargarCliente;
+    private Button btnCargarFoto;
+    private Button btnCargarDatosAdicionales;
+    private Button btnModifDatosCliente;
+    private Button btnCargarCliente;
 
     //CARDVIEW DEL FORMULARIO ADMIN CLIENTE
-    private CardView perfilCardView, zonaCardView, contactoCardView, adicionalesCardView,
-            perfilOcultoCardView, zonaOcultaCardView, contactoOcultoCardView, adicionalesOcultoCardView; //GONE
+    private CardView perfilCardView, zonaCardView, contactoCardView, adicionalesCardView, perfilOcultoCardView, zonaOcultaCardView, contactoOcultoCardView, adicionalesOcultoCardView; //GONE
 
     //LINEAR LAYOUT DEL FORMULARIO ADMIN CLIENTE
     private LinearLayout reservasLL, deliveryLL, vtaOnlineLL, reservasOcultoLL, deliveryOcultoLL, vtaOnlineOcultoLL, direccionFijaLL;
 
     //TXV DEL FORMULARIO ADMIN CLIENTE - GONE
-    private TextView nombretxv, categoriatxv, descripciontxv,
-            direcciontxv, localidadtxv, provinciatxv, paistxv,
-            telefonotxv, mailtxv, webtxv, usFacetxv, usInstatxv, usTwittxv, usWhatstxv,
-            telReservtxv, toleranciatxv, señatxv,
-            telDelivtxv, radioDelivtxv,
-            titulartxv, bancotxv, tipotxv, cuentatxv, cbutxv, cuittxv;
+    private TextView nombretxv, categoriatxv, descripciontxv, direcciontxv, localidadtxv, provinciatxv, paistxv, telefonotxv, mailtxv, webtxv, usFacetxv, usInstatxv, usTwittxv, usWhatstxv, telReservtxv, toleranciatxv, señatxv, telDelivtxv, radioDelivtxv, titulartxv, bancotxv, tipotxv, cuentatxv, cbutxv, cuittxv;
 
     //ATRIBUTOS DE MAPA ................... agregado.
     private GoogleMap mGoogleMap;
@@ -139,9 +130,9 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
     private LatLng coordenadas;
 
     //ATRIBUTOS FIREBASE
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private StorageReference storage = FirebaseStorage.getInstance().getReference();
-
+    //private FirebaseFirestore db;
+    //private StorageReference storage = FirebaseStorage.getInstance().getReference();
+    // Context context;
 
     public DatosClienteFragment() {
     }
@@ -152,8 +143,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_datos, container, false);
 
@@ -182,7 +172,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         numCuentaEd = view.findViewById(R.id.ed_numero_cuenta_facturacion);
         cbuEd = view.findViewById(R.id.ed_cbu_cuenta_facturacion);
         cuitEd = view.findViewById(R.id.ed_tipo_cuit_facturacion);
-        btnVerMapa = view.findViewById(R.id.btn_ver_mapa_comercio);
+        Button btnVerMapa = view.findViewById(R.id.btn_ver_mapa_comercio);
         mapView = view.findViewById(R.id.GoogleMap_container);
         reservasLL = view.findViewById(R.id.linearlayout_servicio_reservas);
         reservasOcultoLL = view.findViewById(R.id.linearlayout_reservas_gone);
@@ -209,10 +199,6 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         paistxv = view.findViewById(R.id.txv_pais_comercio_gone);
         zonaCardView = view.findViewById(R.id.cardview_datos_de_zona);
         zonaOcultaCardView = view.findViewById(R.id.cardview_datos_de_zona_gone);
-        direcciontxv = view.findViewById(R.id.txv_direccion_comercio_gone);
-        localidadtxv = view.findViewById(R.id.txv_localidad_comercio_gone);
-        provinciatxv = view.findViewById(R.id.txv_provincia_comercio_gone);
-        paistxv = view.findViewById(R.id.txv_pais_comercio_gone);
         telefonotxv = view.findViewById(R.id.txv_telefono_comercio_gone);
         mailtxv = view.findViewById(R.id.txv_mail_comercio_gone);
         webtxv = view.findViewById(R.id.txv_web_comercio_gone);
@@ -236,6 +222,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         adicionalesCardView = view.findViewById(R.id.cardview_datos_adicionales);
         adicionalesOcultoCardView = view.findViewById(R.id.cardview_datos_adicionales_gone);
 
+        //db = FirebaseFirestore.getInstance();
 
         // CAMPOS DE CHEQTEXTVIEW
         face = view.findViewById(R.id.cheq_facebook);
@@ -320,7 +307,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         fotodeContacto = (ImageView) view.findViewById(R.id.imagen_contacto_comercio);
 
         //INICIALIZO LOS OBJETOS QUE COMPONEN CLIENTE PARA QUE SE PUEDAN LLAMAR DE TODOS LADOS...
-        cliente = new Cliente();
+        cliente = null;
         zona = new Zona();
         datosDeContacto = new DatosDeContacto();
         datosAdicionales = new DatosAdicionales();
@@ -330,21 +317,20 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
 
         // BOTONES DE FORMULARIO
         btnCargarCliente = (Button) view.findViewById(R.id.btn_cargar_cliente);
-        btnCargarDatosZona = (Button) view.findViewById(R.id.btn_cargar_datos_de_zona_comercio);
-        btnCargarDatosPerfil = view.findViewById(R.id.btn_cargar_datos_de_perfil_comercio);
-        btnCargarDatosContacto = view.findViewById(R.id.btn_cargar_datos_contacto_comercio);       //por ahora no hace nada
+        Button btnCargarDatosZona = (Button) view.findViewById(R.id.btn_cargar_datos_de_zona_comercio);
+        Button btnCargarDatosPerfil = view.findViewById(R.id.btn_cargar_datos_de_perfil_comercio);
+        Button btnCargarDatosContacto = view.findViewById(R.id.btn_cargar_datos_contacto_comercio);
         btnCargarDatosAdicionales = view.findViewById(R.id.btn_cargar_datos_adicionales_comercio); //por ahora no hace nada
         btnModifDatosCliente = view.findViewById(R.id.btn_modificar_cliente);
         btnCargarFoto = (Button) view.findViewById(R.id.btn_cargarFoto_comercio);
-        if (validaPermisos()) {
+        if (validaPermisos(getActivity())) {
             btnCargarFoto.setEnabled(true);
         } else {
             btnCargarFoto.setEnabled(false);
         }
 
         // LOGICA DEL SPINNER
-        ArrayAdapter<CharSequence> adapterSpinCAtegorias = ArrayAdapter.createFromResource(getActivity(),
-                R.array.combo_categorias, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapterSpinCAtegorias = ArrayAdapter.createFromResource(getActivity(), R.array.combo_categorias, android.R.layout.simple_spinner_item);
         categorias.setAdapter(adapterSpinCAtegorias);
         categorias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -359,8 +345,10 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        // LOGICA DEL SWITCH
         direccionFijaLL.setVisibility(View.GONE);
-        //LOGICA DEL SWITCH
+
         switchDireccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -371,12 +359,17 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
             }
         });
 
+        if (!nombreEd.getText().toString().isEmpty()) {
+            cliente = new Cliente();
+        }
+
 
 // LOGICA DEL BOTON CARGAR FOTOS
         btnCargarFoto.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                seleccionarFoto();
+                seleccionarFoto(getActivity(), DatosClienteFragment.this);
             }
         });
 
@@ -452,9 +445,13 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
 
     private void cargarDatosAdicionales() {
         datosAdicionales = new DatosAdicionales(cargarReservas(), cargarDelivery(), cargarDatosFacturacion());
-        cliente.setDatosAdicionales(datosAdicionales);
-        adicionalesOcultoCardView.setVisibility(View.VISIBLE);
-        adicionalesCardView.setVisibility(View.GONE);
+        if (cliente == null) {
+            Toast.makeText(getActivity(), "primero debe guardar los datos de perfil. " + "no se puede cargar sin Nombre ni Categoría.", Toast.LENGTH_SHORT).show();
+        } else {
+            cliente.setDatosAdicionales(datosAdicionales);
+            adicionalesOcultoCardView.setVisibility(View.VISIBLE);
+            adicionalesCardView.setVisibility(View.GONE);
+        }
     }
 
     private DatosDeFacturacion cargarDatosFacturacion() {
@@ -464,8 +461,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         String cuentaTxt = numCuentaEd.getText().toString().trim();
         String cbuTxt = cbuEd.getText().toString().trim();
         String cuitTxt = cuitEd.getText().toString().trim();
-        if (!titularTxt.isEmpty() && !bancoTxt.isEmpty() && !tipoTxt.isEmpty() && !cuentaTxt.isEmpty() &&
-                !cbuTxt.isEmpty() && !cuitTxt.isEmpty()) {
+        if (!titularTxt.isEmpty() && !bancoTxt.isEmpty() && !tipoTxt.isEmpty() && !cuentaTxt.isEmpty() && !cbuTxt.isEmpty() && !cuitTxt.isEmpty()) {
             datosDeFacturacion = new DatosDeFacturacion(bancoTxt, titularTxt, cuentaTxt, tipoTxt, cbuTxt, cuitTxt);
             bancotxv.setText("Banco: " + bancoTxt);
             titulartxv.setText("Titular: " + titularTxt);
@@ -500,7 +496,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
             servicioReservas = new Reservas(telefonoResTxt, toleranciaTxt, señaTxt);
             telReservtxv.setText(telefonoResTxt);
             toleranciatxv.setText(toleranciaTxt);
-            if (señaTxt.isEmpty() || señaTxt == "0") {
+            if (señaTxt.isEmpty() || señaTxt.equals( "0")) {
                 señatxv.setText("sin seña");
             } else {
                 señatxv.setText(señaTxt);
@@ -517,8 +513,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         String provinciaTxt = provinciaEd.getText().toString().trim();
         String paisTxt = paisEd.getText().toString().trim();
         if (!direccionTxt.isEmpty() && !localidadTxt.isEmpty() && !provinciaTxt.isEmpty() && !paisTxt.isEmpty()) {
-            String direccionAConvertir = direccionTxt + ", " + localidadTxt + ", " + provinciaTxt
-                    + ", " + paisTxt;
+            String direccionAConvertir = direccionTxt + ", " + localidadTxt + ", " + provinciaTxt + ", " + paisTxt;
             coordenadas = convertirDirEnLatlang(direccionAConvertir);
             onMapReady(mGoogleMap);
             contenedorDeMapview.setVisibility(View.VISIBLE);
@@ -528,6 +523,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
     }
 
     private void cargarDatosPerfil() {
+        cliente = new Cliente();
         String nombreTxt = nombreEd.getText().toString().trim();
         String descripcionTxt = descripcionEd.getText().toString().trim();
         if (nombreTxt.isEmpty() || categoriaTxt == null) {
@@ -547,18 +543,17 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
     }
 
     public void cargarCliente() {
-        if (perfilOcultoCardView.getVisibility() == View.GONE || direccionFijaLL.getVisibility() == View.VISIBLE && zonaOcultaCardView.getVisibility() == View.GONE
-                || contactoOcultoCardView.getVisibility() == View.GONE || adicionalesOcultoCardView.getVisibility() == View.GONE) {
+        if (perfilOcultoCardView.getVisibility() == View.GONE || direccionFijaLL.getVisibility() == View.VISIBLE && zonaOcultaCardView.getVisibility() == View.GONE || contactoOcultoCardView.getVisibility() == View.GONE || adicionalesOcultoCardView.getVisibility() == View.GONE) {
             Toast.makeText(getActivity(), "antes de cargar el Cliente debe guardar los Datos.", Toast.LENGTH_SHORT).show();
         } else {
             if (cliente.getNombreComercio() == null && categoriaTxt == null) {
                 Toast.makeText(getActivity(), "el Cliente no se puede cargar sin Nombre ni Categoría.", Toast.LENGTH_SHORT).show();
             } else {
-                db.collection("clientes").document(cliente.getNombreComercio()).set(cliente).addOnSuccessListener(new OnSuccessListener<Void>() {
+                Constantes.db.collection("clientes").document(cliente.getNombreComercio()).set(cliente).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
-                        Toast.makeText(getActivity(), "Cliente cargado correctamente...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Cliente cargado correctamente!!!", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -585,24 +580,26 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
             provinciatxv.setText(provinciaTxt);
             paistxv.setText(paisTxt);
             if (direccionTxt.isEmpty() || localidadTxt.isEmpty() || provinciaTxt.isEmpty() || paisTxt.isEmpty()) {
-                Toast.makeText(getActivity(), "Debe completar todos los campos de Datos de Zona " +
-                        "para generar el punto en el mapa...", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Debe completar todos los campos de Datos de Zona " + "para generar el punto en el mapa...", Toast.LENGTH_LONG).show();
             } else {
                 if (coordenadas == null) {
-                    String direccionAConvertir = direccionTxt + ", " + localidadTxt + ", " + provinciaTxt
-                            + ", " + paisTxt;
+                    String direccionAConvertir = direccionTxt + ", " + localidadTxt + ", " + provinciaTxt + ", " + paisTxt;
                     coordenadas = convertirDirEnLatlang(direccionAConvertir);
                 }
                 zona = new Zona(direccionTxt, localidadTxt, provinciaTxt, paisTxt);
                 zona.setLatlang(coordenadas);
-                cliente.setZona(zona);
-                if (mapViewOculto != null) {
-                    mapViewOculto.onCreate(null);
-                    mapViewOculto.onResume();
-                    mapViewOculto.getMapAsync(this);
+                if (cliente == null) {
+                    Toast.makeText(getActivity(), "primero debe guardar los datos de perfil. " + "no se puede cargar sin Nombre ni Categoría.", Toast.LENGTH_SHORT).show();
+                } else {
+                    cliente.setZona(zona);
+                    if (mapViewOculto != null) {
+                        mapViewOculto.onCreate(null);
+                        mapViewOculto.onResume();
+                        mapViewOculto.getMapAsync(this);
+                    }
+                    zonaOcultaCardView.setVisibility(View.VISIBLE);
+                    zonaCardView.setVisibility(View.GONE);
                 }
-                zonaOcultaCardView.setVisibility(View.VISIBLE);
-                zonaCardView.setVisibility(View.GONE);
             }
         }
     }
@@ -622,9 +619,13 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         datosDeContacto.setMail(mailTxt);
         datosDeContacto.setTelefono(telefonoTxt);
         datosDeContacto.setRedes(redesTxt);
-        cliente.setDatosDeContacto(datosDeContacto);
-        contactoOcultoCardView.setVisibility(View.VISIBLE);
-        contactoCardView.setVisibility(View.GONE);
+        if (cliente == null) {
+            Toast.makeText(getActivity(), "primero debe guardar los datos de perfil. " + "no se puede cargar sin Nombre ni Categoría.", Toast.LENGTH_SHORT).show();
+        } else {
+            cliente.setDatosDeContacto(datosDeContacto);
+            contactoOcultoCardView.setVisibility(View.VISIBLE);
+            contactoCardView.setVisibility(View.GONE);
+        }
     }
 
     private List<String> cargarRedesCliente() {
@@ -656,22 +657,21 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         return redesExistentes;
     }
 
-    private void seleccionarFoto() {
+    public void seleccionarFoto(final Context context, final Fragment fragment) {
         final CharSequence[] option = {"Tomar foto", "Abrir Galería", "Cancelar"};
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Elige una opción");
-        builder.setItems(option, new DialogInterface.OnClickListener() {
+        final AlertDialog.Builder builder1 = builder.setItems(option, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 switch (i) {
                     case 0://"Tomar foto"
-                        openCamera();
-                        //pickerPath = cameraPicker.pickImage();
+                        openCamera(fragment, context);
                         break;
                     case 1: //"Abrir Galeriía"
                         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         intent.setType("image/*");
-                        startActivityForResult(intent.createChooser(intent, "Abrir con..."), Constantes.COD_GALERIA);
+                        fragment.startActivityForResult(intent.createChooser(intent, "Abrir con..."), Constantes.COD_GALERIA);
                         //imagePicker.pickImage();
                 }
             }
@@ -679,21 +679,20 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         builder.show();
     }
 
-    private void openCamera() {
+    public void openCamera(final Fragment fragment, final Context context) {
         File file = new File(Environment.getExternalStorageDirectory(), Constantes.RUTA_IMAGEN);
         boolean isDirectoryCreated = file.exists();
-        if (!isDirectoryCreated)
-            isDirectoryCreated = file.mkdirs();
+        if (!isDirectoryCreated) isDirectoryCreated = file.mkdirs();
         if (isDirectoryCreated) {
             Long timestamp = System.currentTimeMillis() / 1000;
             String imageName = timestamp.toString() + ".jpg";
-            path = Environment.getExternalStorageDirectory() + File.separator + Constantes.RUTA_IMAGEN
-                    + File.separator + imageName;
+            path = Environment.getExternalStorageDirectory() + File.separator + Constantes.RUTA_IMAGEN + File.separator + imageName;
             File newFile = new File(path);
             fotoPerfilUri = Uri.fromFile(newFile);
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, fotoPerfilUri);
-            startActivityForResult(intent, Constantes.COD_CAMARA);
+            fragment.onAttach(context);
+            fragment.startActivityForResult(intent, Constantes.COD_CAMARA);
         }
     }
 
@@ -719,17 +718,15 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case Constantes.COD_CAMARA:
-                    MediaScannerConnection.scanFile(getActivity(),
-                            new String[]{path}, null,
-                            new MediaScannerConnection.OnScanCompletedListener() {
-                                @Override
-                                public void onScanCompleted(String path, Uri uri) {
-                                    Log.i("ExternalStorage", "Scanned " + path + ":");
-                                    Log.i("ExternalStorage", "-> Uri = " + uri);
-                                    fotoPerfilUri = Uri.parse(path);
-                                    fotodeContacto.setImageURI(fotoPerfilUri);
-                                }
-                            });
+                    MediaScannerConnection.scanFile(getActivity(), new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                        @Override
+                        public void onScanCompleted(String path, Uri uri) {
+                            Log.i("ExternalStorage", "Scanned " + path + ":");
+                            Log.i("ExternalStorage", "-> Uri = " + uri);
+                            fotoPerfilUri = Uri.parse(path);
+                            fotodeContacto.setImageURI(fotoPerfilUri);
+                        }
+                    });
                     break;
                 case Constantes.COD_GALERIA:
                     fotoPerfilUri = data.getData();
@@ -747,7 +744,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
             Date date = new Date();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh-mm-ss", Locale.getDefault());
             nombreFoto = simpleDateFormat.format(date);*/
-            final StorageReference storageRef = storage.child("fotos/").child("foto de Perfil: " + cliente.getNombreComercio());
+            final StorageReference storageRef = Constantes.storage.child("fotos/perfil").child("foto de: " + cliente.getNombreComercio());
             storageRef.putFile(uri).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
 
                 @Override
@@ -787,12 +784,11 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         return coordenadas;
     }
 
-    private boolean validaPermisos() {
+    public boolean validaPermisos(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true;
         }
-        if ((checkSelfPermission(getActivity(), CAMERA) == PackageManager.PERMISSION_GRANTED) &&
-                (checkSelfPermission(getActivity(), WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
+        if ((checkSelfPermission(context, CAMERA) == PackageManager.PERMISSION_GRANTED) && (checkSelfPermission(context, WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
             return true;
         }
         if ((shouldShowRequestPermissionRationale(CAMERA)) || (shouldShowRequestPermissionRationale(WRITE_EXTERNAL_STORAGE))) {
@@ -804,12 +800,10 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 100) {
-            if (grantResults.length == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.length == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 btnCargarFoto.setEnabled(true);
             } else {
                 solicitarPermisosManual();
@@ -819,7 +813,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
 
     }
 
-    private void solicitarPermisosManual() {
+    public void solicitarPermisosManual() {
         final CharSequence[] OPCIONES_CARGAR_FOTO = {"Si", "No"};
         final AlertDialog.Builder alertOPCIONES = new AlertDialog.Builder(getActivity());
         alertOPCIONES.setTitle("Desea configurar los permisos de forma manual?");
@@ -842,7 +836,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         alertOPCIONES.show();
     }
 
-    private void cargarDialogoRecomendacion() {
+    public void cargarDialogoRecomendacion() {
 
         AlertDialog.Builder dialogo = new AlertDialog.Builder(getActivity());
         dialogo.setTitle("Permisos Desactivados");
@@ -870,8 +864,7 @@ public class DatosClienteFragment extends Fragment implements OnMapReadyCallback
         if (context instanceof DatosClienteFragment.OnFragmentInteractionListener) {
             mListener = (DatosClienteFragment.OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }
     }
 

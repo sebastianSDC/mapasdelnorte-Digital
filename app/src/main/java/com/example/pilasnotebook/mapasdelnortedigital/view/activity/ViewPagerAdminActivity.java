@@ -96,12 +96,9 @@ public class ViewPagerAdminActivity extends AppCompatActivity implements Cartele
                     fragment = new CuponeraClienteFragment();
                     break;
                 case 3:
-                    fragment = new CarteleraClienteFragment();
-                    break;
-                case 4:
                     fragment = new FotosClienteFragment();
                     break;
-                case 5:
+                case 4:
                     fragment = new CatalogoOnLineClienteFragment();
                     break;
             }
@@ -129,7 +126,7 @@ public class ViewPagerAdminActivity extends AppCompatActivity implements Cartele
 
             @Override
             public int getCount() {
-                return 5;
+                return 4;
             }
 
             @Override
@@ -138,12 +135,10 @@ public class ViewPagerAdminActivity extends AppCompatActivity implements Cartele
                     case 0:
                         return "Datos";
                     case 1:
-                        return "Cuponera";
+                        return "Cupones";
                     case 2:
-                        return "Cartelera";
-                    case 3:
                         return "Fotos";
-                    case 4:
+                    case 3:
                         return "Catalogo On-Line";
                 }
                 return null;

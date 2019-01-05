@@ -11,9 +11,10 @@
     <string name="DELIVERY">DELIVERY</string>
     <string name="ACTIVITY_IN_APP">DASHBOARD</string>
 
-<!--USADOS EN EL ADMIN DE CLIENTE-->
+    <!--USADOS EN EL ADMIN DE CLIENTE-->
     <string name="admin_comercio">ADMIN COMERCIO</string>
     <string name="texto_inicio_form">POR FAVOR COMPLETE EL FORMULARIO \n (con todos los datos requeridos en el)</string>
+    <string name="texto_inicio_cupon">EN ESTA SECCION PUEDE GENERAR Y PUBLICAR: \n CUPONERA (ofertas, promos, descuentos, etc...) \n CARTELERA (eventos, cursos, talleres, etc..) </string>
 
     <!--CAMPOS DEL FORM-->
     <string name="nombre_local">Nombre del local o servicio</string>
@@ -71,9 +72,11 @@
     <string name="guardar_datos_zona">guardar datos de zona</string>
     <string name="guardar_datos_contacto">guardar datos de contacto</string>
     <string name="guardar_datos_adicionales">guardar datos adicionales</string>
+    <string name="guardar_datos_cupon">guardar datos de cupon</string>
 
-    <string name="modificar_datos_cliente">modificar datos</string>
+    <string name="modificar_datos">modificar datos</string>
     <string name="cargar_cliente">cargar cliente</string>
+    <string name="cargar_cupon">cargar cupon</string>
 
     <string name="datos_de_perfil">datos de perfil</string>
     <string name="datos_de_zona">datos de zona</string>
@@ -83,9 +86,11 @@
     <string name="title_activity_view_pager_admin">ViewPagerAdminActivity</string>
     <string name="action_settings">Settings</string>
 
-    <string name="descripcion_cuponera">en que consiste este evento de cuponera</string>
+    <string name="descripcion_cupon">texto explicativo y aclaratorio</string>
     <string name="titulo">titulo</string>
     <string name="tipo">tipo</string>
+    <string name="subtipo">subtipo</string>
+
 
     <!-- MAPA -->
     <string name="dir_mapa">direccion completa</string>
@@ -124,7 +129,8 @@
     <string name="cheq_twitter">Twitter</string>
     <string name="cheq_whatsapp">WhatsApp</string>
     <string name="powered_by_mapasdelnorte">Powered by MAPASDELNORTE</string>
-
+    <string name="datos_de_cupon">datos de cupon</string>
+    <string name="modificar_datos_cliente">modificar datos</string>
 
 </resources>
 

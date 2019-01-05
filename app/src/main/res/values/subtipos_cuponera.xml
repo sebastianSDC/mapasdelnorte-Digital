@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <string-array name="combo_tipos_cuponera">
         <item>Seleccione uno…</item>
         <item>Promocion</item>
         <item>Oferta</item>
         <item>Descuento</item>
+        <item tools:ignore="TypographyEllipsis">Otro...</item>
 
     </string-array>
 
